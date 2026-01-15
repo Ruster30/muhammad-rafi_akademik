@@ -51,8 +51,8 @@ if(!isset($_SESSION['login'])){
     if ($page == 'create') include 'mahasiswa/create.php';
     if ($page == 'edit') include 'mahasiswa/edit.php';
     if ($page == 'dataprodi') include 'prodi/listp.php';
-    if ($page == 'createp') include 'prodi/create.php';
-    if ($page == 'editp') include 'prodi/edit.php';
+    if ($page == 'createp') include 'prodi/createp.php';
+    if ($page == 'editp') include 'prodi/editp.php';
 ?>
 </div>
 
