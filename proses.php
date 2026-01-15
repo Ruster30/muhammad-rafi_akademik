@@ -2,14 +2,14 @@
     require 'koneksi.php';
 
     //insert Mahasiswa
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['submit_mahasiswa'])) {
         $nim = $_POST['nim'];
         $nama_mhs = $_POST['nama_mhs'];
         $tgl_lahir= $_POST['tgl_lahir'];
         $alamat = $_POST['alamat'];
         $prodi_id  = $_POST['id_prodi']; // dari form
 
-        $query = "INSERT INTO mahasiswa (nim,  nama_mhs, tgl_lahir, alamat,prodi_is) VALUES ('$nim', '$nama_mhs','$tgl_lahir', '$alamat', '$id_prodi')";
+        $query = "INSERT INTO mahasiswa (nim,  nama_mhs, tgl_lahir, alamat,prodi_id) VALUES ('$nim', '$nama_mhs','$tgl_lahir', '$alamat', '$prodi_id')";
         $sql = $koneksi->query($query);
 
         if ($sql){
@@ -48,13 +48,13 @@
             alamat='$alamat'
             WHERE nim='$nim_lama'";
 
-        $sql = mysqli_query($koneksi, $query);
+        $sql = $koneksi->query($query);
 
         if ($sql) {
             header("Location: index.php");
             exit();
         } else {
-            echo "Gagal update: " . mysqli_error($koneksi);
+            echo "Gagal update: " . $koneksi->error;
         }
     }
 
@@ -87,13 +87,13 @@
             keterangan='$keterangan'
             WHERE id='$id'";
 
-        $sql = mysqli_query($koneksi, $query);
+        $sql = $koneksi->query($query);
 
         if ($sql) {
             header("Location: index.php");
             exit();
         } else {
-            echo "Gagal update: " . mysqli_error($koneksi);
+            echo "Gagal update: " . $koneksi->error;
         }
     }
 

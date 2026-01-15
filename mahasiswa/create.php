@@ -1,6 +1,6 @@
 <?php
     require 'koneksi.php';
-    $prodi = $koneksi->query("SELECT * FROM prodi");
+    $prodi = mysqli_query($koneksi,"SELECT * FROM prodi");
 ?>
 <form method="POST" action="proses.php">
     <div class="container">
